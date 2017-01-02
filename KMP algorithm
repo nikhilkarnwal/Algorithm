@@ -1,0 +1,21 @@
+vector<int> createTable(string s){
+        int n=s.length();
+        vector<int> v(n,0);
+        int i=1,h=0;
+        while(i<n){
+            if(s[i]==s[h]){
+                v[i]=h+1;
+                h++;
+                i++;
+                //cout<<i-1<<"-"<<v[i-1]<<":";
+            }
+            else if(h!=0){
+                h=v[h-1];
+            }
+            else{
+                v[i]=0;
+                i++;
+            }
+        }
+        return v;
+    }
